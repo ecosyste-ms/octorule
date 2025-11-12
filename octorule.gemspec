@@ -12,7 +12,7 @@ Gem::Specification.new do |spec|
   spec.description = "A command-line tool to synchronize and enforce repository settings, collaborators, branch protection rules, and files across GitHub organizations"
   spec.homepage = "https://github.com/ecosyste-ms/octorule"
   spec.license = "MIT"
-  spec.required_ruby_version = ">= 3.4.7"
+  spec.required_ruby_version = ">= 3.4.5"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/ecosyste-ms/octorule"
