@@ -43,7 +43,8 @@ module Octorule
       filters = {
         name_pattern: @options[:name_pattern],
         label: @options[:label],
-        language: @options[:language]
+        language: @options[:language],
+        fork: @options[:fork]
       }
 
       client = Octokit::Client.new(access_token: token, api_endpoint: @options[:base_url])
@@ -78,6 +79,14 @@ module Octorule
 
         opts.on("--language LANGUAGE", "Only process repositories with this primary language") do |lang|
           @options[:language] = lang
+        end
+
+        opts.on("--fork", "Only process repositories that are forks") do
+          @options[:fork] = true
+        end
+
+        opts.on("--no-fork", "Only process repositories that aren't forks") do
+          @options[:fork] = false
         end
 
         opts.on("-t", "--token TOKEN", "GitHub Personal Access Token (overrides GITHUB_TOKEN env var)") do |token|

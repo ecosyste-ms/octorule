@@ -53,6 +53,8 @@ Filter Options:
 - `-n, --name-pattern <pattern>`: Regular expression pattern to match repository names to include
 - `-l, --label <label>`: Only process repositories that have this label
 - `--language <language>`: Only process repositories with this primary language
+- `--fork`: Only process repositories that are forks
+- `--no-fork`: Only process repositories that aren't forks
 
 Other Options:
 
@@ -84,6 +86,12 @@ octorule --org my-org --settings settings.json --label active
 
 # Only process Ruby repositories
 octorule --org my-org --settings settings.json --language ruby
+
+# Only process forked repositories
+octorule --org my-org --settings settings.json --fork
+
+# Only process non-forked repositories
+octorule --org my-org --settings settings.json --no-fork
 
 # Combine multiple filters (repositories must match ALL specified filters)
 octorule --org my-org --settings settings.json --name-pattern "api" --language ruby

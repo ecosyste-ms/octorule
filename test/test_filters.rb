@@ -29,4 +29,20 @@ class TestFilters < Minitest::Test
     assert @filters.should_process?(repo, { language: "ruby" })
     refute @filters.should_process?(repo, { language: "python" })
   end
+
+  def test_filters_fork_only
+    fork_repo = { name: "forked-repo", archived: false, fork: true }
+    regular_repo = { name: "regular-repo", archived: false, fork: false }
+
+    assert @filters.should_process?(fork_repo, { fork: true })
+    refute @filters.should_process?(regular_repo, { fork: true })
+  end
+
+  def test_filters_no_fork
+    fork_repo = { name: "forked-repo", archived: false, fork: true }
+    regular_repo = { name: "regular-repo", archived: false, fork: false }
+
+    refute @filters.should_process?(fork_repo, { fork: false })
+    assert @filters.should_process?(regular_repo, { fork: false })
+  end
 end

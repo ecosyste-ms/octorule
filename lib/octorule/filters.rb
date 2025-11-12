@@ -39,6 +39,16 @@ module Octorule
         end
       end
 
+      if !filters[:fork].nil?
+        if filters[:fork] && !repo[:fork]
+          puts "Skipping #{repo[:name]} - repository is not a fork"
+          return false
+        elsif !filters[:fork] && repo[:fork]
+          puts "Skipping #{repo[:name]} - repository is a fork"
+          return false
+        end
+      end
+
       true
     end
 
