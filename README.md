@@ -1,5 +1,7 @@
 # Octorule
 
+[![Gem Version](https://badge.fury.io/rb/octorule.svg)](https://badge.fury.io/rb/octorule)
+
 A command-line tool to enforce and synchronize GitHub repository settings across your organization.
 
 ## Features
